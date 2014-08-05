@@ -16,10 +16,15 @@
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end
-
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, :at => '10:00 pm' do
-  rake "digest:send_mail"
+
+set :environment, "development"
+set :output, {:error => 'log/cron_error_log.log', :standard => 'log/cron_log.log'}
+#every 1.day, :at => '10:00 pm' do
+#  rake "digest:send_mail"
+#end
+every 1.minutes do
+   rake "digest:send_email"
 end
 
