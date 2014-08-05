@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-#every 1.day, :at => '10:00 pm' do
-#  runner "Class.SendDigestEmails"
-#end
+every 1.day, :at => '10:00 pm' do
+  rake "digest:send_mail"
+end
 
