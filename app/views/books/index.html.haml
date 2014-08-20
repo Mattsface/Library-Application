@@ -1,5 +1,7 @@
 %h1 Listing books
-
+- if flash[:notice]
+  .notice
+    = flash[:notice]
 %table
   %tr
     %th Title

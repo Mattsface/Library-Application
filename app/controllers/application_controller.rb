@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
+  def check_user_privaleges!
+    redirect_to "/", flash[:notice] = render('You must sign in, or sign up to access this resource') unless current_user
+  end
+ 
   def respond_to_create params
     thing    = params[:thing]
     redirect = params[:redirect] ? params[:redirect] : thing

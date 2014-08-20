@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_filter :check_user_privaleges!, only: [:new, :create, :edit, :save]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
